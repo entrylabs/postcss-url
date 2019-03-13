@@ -10,7 +10,7 @@
 ## Installation
 
 ```console
-$ npm install postcss-url
+$ npm install @entrylabs/postcss-url
 ```
 
 ## Basic example - rebase
@@ -253,7 +253,7 @@ Prepend the original filename in resulting filename
 Work on a branch, install dev-dependencies, respect coding style & run tests before submitting a bug fix or a feature.
 
 ```console
-$ git clone https://github.com/postcss/postcss-url.git
+$ git clone https://github.com/entrylabs/postcss-url.git
 $ git checkout -b patch-1
 $ npm install
 $ npm test
