@@ -10,7 +10,7 @@
 ## Installation
 
 ```console
-$ npm install postcss-url
+$ npm install @entrylabs/postcss-url
 ```
 
 ## Basic example - rebase
