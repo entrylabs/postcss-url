@@ -13,9 +13,9 @@ const getAssetsPath = paths.getAssetsPath;
 const normalize = paths.normalize;
 
 const getHashName = (file, options) =>
-    (options && options.append ? (`${path.basename(file.path, path.extname(file.path))}_`) : '')
-     + calcHash(file.contents, options)
-     + path.extname(file.path);
+    (options && options.append ? `${path.basename(file.path, path.extname(file.path))}_` : '') +
+    calcHash(file.contents, options) +
+    path.extname(file.path);
 
 /**
  * Copy images from readed from url() to an specific assets destination
@@ -52,15 +52,22 @@ module.exports = function processCopy(asset, dir, options, decl, warn, result, a
 
     const targetDir = getTargetDir(dir);
     const newAssetBaseDir = getAssetsPath(targetDir, options.assetsPath);
+    const newCopyBaseDir = options.copyPath
+        ? getAssetsPath(targetDir, options.copyPath)
+        : newAssetBaseDir;
     const newAssetPath = path.join(newAssetBaseDir, assetRelativePath);
-    const newRelativeAssetPath = normalize(
-        path.relative(targetDir, newAssetPath)
-    );
+    const newCopyPath = options.copyPath
+        ? path.join(newCopyBaseDir, assetRelativePath)
+        : newAssetPath;
+    const newRelativeAssetPath = normalize(path.relative(targetDir, newAssetPath));
+    const newRelativeCopyPath = options.copyPath
+        ? normalize(path.relative(targetDir, newCopyPath))
+        : newRelativeAssetPath;
 
-    mkdirp.sync(path.dirname(newAssetPath));
+    mkdirp.sync(path.dirname(newCopyPath));
 
-    if (!fs.existsSync(newAssetPath)) {
-        fs.writeFileSync(newAssetPath, file.contents);
+    if (!fs.existsSync(newCopyPath)) {
+        fs.writeFileSync(newCopyPath, file.contents);
     }
 
     addDependency(file.path);

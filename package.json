@@ -1,5 +1,5 @@
 {
-  "name": "postcss-url",
+  "name": "@entrylabs/postcss-url",
   "version": "8.0.0",
   "description": "PostCSS plugin to rebase or inline on url().",
   "keywords": [
