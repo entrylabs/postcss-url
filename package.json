@@ -1,7 +1,8 @@
 {
   "name": "@entrylabs/postcss-url",
-  "version": "8.0.0",
+  "version": "8.0.1",
   "description": "PostCSS plugin to rebase or inline on url().",
+  "private": false,
   "keywords": [
     "css",
     "postcss",
@@ -12,9 +13,9 @@
     "base64",
     "assets"
   ],
-  "author": "Maxime Thirouin",
+  "author": "Entrylabs",
   "license": "MIT",
-  "repository": "https://github.com/postcss/postcss-url.git",
+  "repository": "https://github.com/entrylabs/postcss-url.git",
   "main": "src/index.js",
   "files": [
     "src"
